@@ -124,9 +124,11 @@ public class Graph {
         if (links != null) {
             initialDistance++;
             for (Node nodeFromLinks : links) {
-                if (!distances.containsKey(nodeFromLinks) || distances.get(nodeFromLinks) >= initialDistance) {
+                if ((!distances.containsKey(nodeFromLinks) || distances.get(nodeFromLinks) > initialDistance)) {
                     distances.put(nodeFromLinks, initialDistance);
-                    getDistancesPerNodesInList(nodeFromLinks, initialDistance, distances);
+                    if (nodeFromLinks.getLinks().size() != 1) {
+                        getDistancesPerNodesInList(nodeFromLinks, initialDistance, distances);
+                    }
                 }
             }
         }

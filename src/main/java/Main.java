@@ -49,5 +49,16 @@ public class Main {
         graph.disconnect(node7, node8);
         graph.disconnect(node1, node2);
         System.out.println("Distance between node7 and node3 = " + graph.getDistance(node7, node3));
+
+
+        Graph.Node node01 = new Graph.Node("1");
+
+        Graph.Node[] nodes = new Graph.Node[1000];
+        for (int i = 0; i < nodes.length; i++) {
+            nodes[i] = new Graph.Node(i + "");
+            graph.connect(node01, nodes[i]);
+        }
+
+        System.out.println(graph.getDistance(node01, nodes[0]));
     }
 }
